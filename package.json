@@ -37,13 +37,13 @@
     "postbundle": "echo bundle done!",
     "postless": "echo less done!",
     "prepublish": "npm run tsd && tsconfig",
-    "start": "concurrent -r -k \"npm run watch\" \"nodemon server/server.js\"",
+    "start": "concurrent -r -k \"npm run watch\" \"node server/server.js\"",
     "ts": "tsconfig && tsc -p .",
     "tsconfig": "tsconfig",
     "tsd": "tsd update -so && tsd link",
     "watch": "concurrent -r -k \"npm run watch:less\"",
     "watch:bundle": "mkdirp app/dist && watchify app/src/main.js -d -t stringify -o app/dist/app.js -v",
-    "watch:less": "nodemon -q -w app -e less --exec npm run less",
+    "watch:less": "nodemon -q -w client -e less --exec npm run less",
     "watch:ts": "npm run ts -- -w"
   }
 }
