@@ -1,11 +1,115 @@
-.blogPost {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	background-color: bisque;
-	box-shadow: 10px 10px 5px #888888;
+.container {
+  height: 100%;
+  width: 100%;
+  padding-left: 2em;
+  box-sizing: border-box;
 }
-
-.blogText {
-	margin-left: 20px;
+.container .inner-container {
+  float: left;
+  height: 100%;
+  width: 25%;
+  padding-top: 4em;
+  box-sizing: border-box;
+}
+.container .inner-container .navbar {
+  height: 4em;
+}
+.container .inner-container .footer {
+  height: 4em;
+}
+.container .sidebar {
+  width: 2em;
+}
+.divtest {
+  width: 25%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.static {
+  position: static;
+}
+.fixed {
+  position: fixed;
+}
+.tl {
+  top: 0;
+  left: 0;
+}
+.tr {
+  top: 0;
+  right: 0;
+}
+.bl {
+  bottom: 0;
+  left: 0;
+}
+.br {
+  bottom: 0;
+  right: 0;
+}
+.block-xs {
+  width: 100px;
+  height: 50px;
+}
+.block-sm {
+  width: 200px;
+  height: 100px;
+}
+.block {
+  width: 400px;
+  height: 200px;
+}
+.block-lg {
+  width: 600px;
+  height: 300px;
+}
+.block-xl {
+  width: 800px;
+  height: 400px;
+}
+.padding-tb {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.fill-width {
+  width: 100%;
+}
+.fill-height {
+  height: 100%;
+}
+.border-box {
+  box-sizing: border-box;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.red {
+  background-color: red;
+}
+.purple {
+  background-color: purple;
+}
+.orange {
+  background-color: orange;
+}
+.text-white {
+  color: white;
 }
