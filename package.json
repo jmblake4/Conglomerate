@@ -43,7 +43,7 @@
     "tsd": "tsd update -so && tsd link",
     "watch": "concurrent -r -k \"npm run watch:less\"",
     "watch:bundle": "mkdirp app/dist && watchify app/src/main.js -d -t stringify -o app/dist/app.js -v",
-    "watch:less": "nodemon -q -w app -e less --exec npm run less",
+    "watch:less": "nodemon -q -w client -e less --exec npm run less",
     "watch:ts": "npm run ts -- -w"
   }
 }
