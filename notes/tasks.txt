@@ -1,0 +1,3 @@
+create login page layout
+create multi stream view layout
+set up mysql and create a database so users can authenticate
