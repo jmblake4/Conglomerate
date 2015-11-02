@@ -18,12 +18,15 @@ function requestHandler(req, res){
 		header = { 'Content-Type': 'text/css' };
 	} else if (req.url.slice(-4) === 'html') {
 		header = { 'Content-Type': 'text/html' };
+	} else if (req.url.slice(-3) === 'svg') { 
+		header = { 'Content-Type': 'image/svg+xml'}
 	} else {
 		res.writeHead(404);
 		res.end();
 	}
 	
 	filePath = path.join(__dirname, '../client' + route);
+	console.log(filePath);
 	fs.readFile(filePath, function(err, data) {
 		if ( err != null ) {
 			console.log(err);
