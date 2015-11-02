@@ -9,10 +9,10 @@ html {
 .container {
   height: 100%;
   width: 100%;
-  padding-left: 5em;
   box-sizing: border-box;
 }
 .container .inner-container {
+  padding-left: 5em;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
