@@ -6,6 +6,10 @@ BlogSite.config(['$routeProvider', function($routeProvider) {
 		templateUrl : 'views/blogposts.html',
 		controller  : 'blogpostsController'
 	})
+	.when('/login', {
+		templateUrl : 'views/login.html',
+		controller  : 'loginController'
+	})
 	.when('/blogposts', {
 		templateUrl : 'views/blogposts.html',
 		controller  : 'blogpostsController'

@@ -56,3 +56,9 @@ BlogSite.controller('blogdetailController', ['$scope', '$http', '$rootScope', '$
 	}
 	
 }]);
+
+BlogSite.controller('loginController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
+
+
+
+}]);
