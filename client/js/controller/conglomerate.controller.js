@@ -1,9 +1,9 @@
 angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
 
-	$scope.deck1Hide = false;
-	$scope.deck2Hide = false;
-	$scope.deck3Hide = false;
-	$scope.deck4Hide = false;
+	$scope.stream1Hide = false;
+	$scope.stream2Hide = false;
+	$scope.stream3Hide = false;
+	$scope.stream4Hide = false;
 	var visibleStreams = 4;	
 	$scope.widthClass = 'inner-4-width';
 
@@ -21,89 +21,32 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 			});
 	}
 	
+	$scope.toggleDeck1 = function() {
+		$scope.stream1Hide = !$scope.stream1Hide;
+	}
+	
 	$scope.addStream = function() {
 		console.log('adding stream');
-		// if ( visibleStreams === 4 ) {
-		// 	alert('Maximum number of streams already visible!')
-		// } else {
-		// 	visibleStreams++;
-		// 	var stream = visibleStreams.toString();
-		// 	$scope.widthClass = 'inner-' + stream + '-width';
-		// 	eval('$scope.deck' + stream + 'Hide = false');
-		// }
+		if ( visibleStreams === 4 ) {
+			alert('Maximum number of streams already visible!')
+		} else {
+			visibleStreams++;
+			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
+			eval('$scope.stream' + visibleStreams.toString() + 'Hide = false;');
+		}
 	}
 	
 	$scope.removeStream = function() {
-		console.log('removing stream');
-		// if ( visibleStreams === 0 ) {
-		// 	alert('No streams to remove!')
-		// } else {
-		// 	visibleStreams--;
-		// 	var stream = visibleStreams.toString();
-		// 	$scope.widthClass = 'inner-' + stream + '-width';
-		// 	eval('$scope.deck' + stream + 'Hide = false');
-		// }				
+		if ( visibleStreams === 1 ) {
+			alert('Only one stream remaining!')
+		} else {
+			console.log('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
+			// eval('$scope.deck' + visibleStreams.toString() + 'Hide = true;');
+			$scope.deck4Hide = true;
+			visibleStreams--;
+			console.log('removing stream');
+			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
+		}
 	}
 
-	// Parse.getPosts()
-	// .then(function(res) {
-	// 	$scope.blogPosts = res.data.results.reverse();
-	// }).catch(function(err) {
-	// 	console.log(err);
-	// 	alert('There was an error!');
-	// });
-
-	// $scope.createBlogEntry = function() {
-	// 	$window.location.href = '#newpost';
-	// }
-
 }]);
-
-// Conglomerate.controller('newpostController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
-
-// 	$scope.newPost = funkkkkkkction() {
-// 		var blogAuthor = $scope.blogAuthor, blogTitle = $scope.blogTitle, blogContent = $scope.blogContent;
-// 		if ( blogAuthor === '' || blogTitle === '' || blogContent === '' || blogAuthor === undefined || blogTitle === undefined || blogContent === undefined) {
-// 			alert('Invalid blog entry!')
-// 			$window.location.href = '#blogposts';
-// 		} else {
-// 			var blogPost = {
-// 				author: blogAuthor,
-// 				title: blogTitle,
-// 				content: blogContent
-// 			};
-// 			Parse.submitPost(blogPost)
-// 			.then(function(res) {
-// 				console.log(res.data);
-// 				$window.location.href = '#blogposts';
-// 			}).catch(function(err) {
-// 				console.log(err);
-// 				alert('There was an error!');
-// 				$window.location.href = '#blogposts';
-// 			});
-// 		}
-// 	}
-
-// }]);
-
-// Conglomerate.controller('blogdetailController', ['$scope', '$http', '$rootScope', '$window', 'Parse', '$routeParams', function($scope, $http, $rootScope, $window, Parse, $routeParams) {
-
-// 	Parse.getPost($routeParams.blogId)
-// 	.then(function(res) {
-// 		$scope.blogPost = res.data;
-// 	}).catch(function(err) {
-// 		console.log(err);
-// 		alert('There was an error!');
-// 	});
-
-// 	$scope.returntoBlog = function() {
-// 		$window.location.href = '#blogposts';
-// 	}
-
-// }]);
-
-// Conglomerate.controller('loginController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
-
-
-
-// }]);
