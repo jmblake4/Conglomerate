@@ -5,7 +5,7 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 	$scope.deck3Hide = false;
 	$scope.deck4Hide = false;
 	var visibleStreams = 4;	
-	$scope.widthClass = 'inner-2-width';
+	$scope.widthClass = 'inner-4-width';
 
 	var vm = this;
 
@@ -21,27 +21,28 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 			});
 	}
 	
-	function addStream() {
-		if ( visibleStreams === 4 ) {
-			alert('Maximum number of streams already visible!')
-		} else {
-			visibleStreams++;
-			var stream = visibleStreams.toString();
-			$scope.widthClass = 'inner-' + stream + '-width';
-			eval('$scope.deck' + stream + 'Hide = false');
-		}
+	$scope.addStream = function() {
+		console.log('adding stream');
+		// if ( visibleStreams === 4 ) {
+		// 	alert('Maximum number of streams already visible!')
+		// } else {
+		// 	visibleStreams++;
+		// 	var stream = visibleStreams.toString();
+		// 	$scope.widthClass = 'inner-' + stream + '-width';
+		// 	eval('$scope.deck' + stream + 'Hide = false');
+		// }
 	}
 	
-	function removeStream() {
-		if ( visibleStreams === 0 ) {
-			alert('No streams to remove!')
-		} else {
-			visibleStreams--;
-			var stream = visibleStreams.toString();
-			$scope.widthClass = 'inner-' + stream + '-width';
-			eval('$scope.deck' + stream + 'Hide = false');
-		}
-				
+	$scope.removeStream = function() {
+		console.log('removing stream');
+		// if ( visibleStreams === 0 ) {
+		// 	alert('No streams to remove!')
+		// } else {
+		// 	visibleStreams--;
+		// 	var stream = visibleStreams.toString();
+		// 	$scope.widthClass = 'inner-' + stream + '-width';
+		// 	eval('$scope.deck' + stream + 'Hide = false');
+		// }				
 	}
 
 	// Parse.getPosts()
