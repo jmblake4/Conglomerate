@@ -1,16 +1,21 @@
 Conglomerate.controller('deckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
 
-	Parse.getPosts()
-	.then(function(res) {
-		$scope.blogPosts = res.data.results.reverse();
-	}).catch(function(err) {
-		console.log(err);
-		alert('There was an error!');
-	});
+	$scope.deck1Visible = true;
+	$scope.deck2Visible = true;
+	$scope.deck3Visible = true;
+	$scope.deck4Visible = true;
 
-	$scope.createBlogEntry = function() {
-		$window.location.href = '#newpost';
-	}
+	// Parse.getPosts()
+	// .then(function(res) {
+	// 	$scope.blogPosts = res.data.results.reverse();
+	// }).catch(function(err) {
+	// 	console.log(err);
+	// 	alert('There was an error!');
+	// });
+
+	// $scope.createBlogEntry = function() {
+	// 	$window.location.href = '#newpost';
+	// }
 
 }]);
 
