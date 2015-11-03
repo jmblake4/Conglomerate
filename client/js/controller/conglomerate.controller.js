@@ -1,4 +1,4 @@
-Conglomerate.controller('deckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
+Conglomerate.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
 	$scope.deck1Visible = true;
 	$scope.deck2Visible = true;
@@ -62,8 +62,8 @@ Conglomerate.controller('deckController', ['$scope', '$http', '$rootScope', '$wi
 
 // }]);
 
-Conglomerate.controller('loginController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
+// Conglomerate.controller('loginController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Parse', function($scope, $http, $rootScope, $window, $cacheFactory, Parse) {
 
 
 
-}]);
+// }]);

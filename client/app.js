@@ -26,6 +26,12 @@
                 templateUrl: 'register/register.view.html',
                 controllerAs: 'vm'
             })
+            
+            .when('/deck', {
+                controller: 'DeckController',
+                templateUrl: 'views/deck.html',
+                controllerAs: 'vm'
+            })
 
             .otherwise({ redirectTo: '/login' });
     }
