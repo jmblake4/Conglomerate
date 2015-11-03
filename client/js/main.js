@@ -1,25 +1,17 @@
-var BlogSite = angular.module('BlogSite', ['ngRoute', 'ngResource']);
+var Conglomerate = angular.module('Conglomerate', ['ngRoute', 'ngResource']);
 
-BlogSite.config(['$routeProvider', function($routeProvider) {
+Conglomerate.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl : 'views/blogposts.html',
-		controller  : 'blogpostsController'
+		templateUrl : 'views/login.html',
+		controller  : 'loginController'
 	})
 	.when('/login', {
 		templateUrl : 'views/login.html',
 		controller  : 'loginController'
 	})
-	.when('/blogposts', {
-		templateUrl : 'views/blogposts.html',
-		controller  : 'blogpostsController'
-	})
-	.when('/newpost', {
-		templateUrl : 'views/newpost.html',
-		controller  : 'newpostController'
-	})
-	.when('/blogposts/:blogId', {
-		templateUrl : 'views/blogdetail.html',
-		controller  : 'blogdetailController'
+	.when('/deck', {
+		templateUrl : 'views/deck.html',
+		controller  : 'deckController'
 	});
 }]);
