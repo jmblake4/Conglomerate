@@ -27,7 +27,6 @@ node_modules
 /typings
 
 # JS, css, and map files
-*.js
 *.css
 *.map
 
