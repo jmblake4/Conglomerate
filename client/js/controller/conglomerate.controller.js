@@ -4,6 +4,8 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 	$scope.deck2Hide = false;
 	$scope.deck3Hide = false;
 	$scope.deck4Hide = false;
+	var visibleStreams = 4;	
+	$scope.widthClass = 'inner-2-width';
 
 	var vm = this;
 
@@ -11,13 +13,36 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 
 	loadCurrentUser();
 
-        function loadCurrentUser() {
-            UserService.GetByUsername($rootScope.globals.currentUser.username)
-                .then(function (user) {
-                    vm.user = user;
-					console.log(user);
-                });
-        }
+	function loadCurrentUser() {
+		UserService.GetByUsername($rootScope.globals.currentUser.username)
+			.then(function (user) {
+				vm.user = user;
+				console.log(user);
+			});
+	}
+	
+	function addStream() {
+		if ( visibleStreams === 4 ) {
+			alert('Maximum number of streams already visible!')
+		} else {
+			visibleStreams++;
+			var stream = visibleStreams.toString();
+			$scope.widthClass = 'inner-' + stream + '-width';
+			eval('$scope.deck' + stream + 'Hide = false');
+		}
+	}
+	
+	function removeStream() {
+		if ( visibleStreams === 0 ) {
+			alert('No streams to remove!')
+		} else {
+			visibleStreams--;
+			var stream = visibleStreams.toString();
+			$scope.widthClass = 'inner-' + stream + '-width';
+			eval('$scope.deck' + stream + 'Hide = false');
+		}
+				
+	}
 
 	// Parse.getPosts()
 	// .then(function(res) {

@@ -26,7 +26,7 @@ function requestHandler(req, res){
 	}
 	
 	filePath = path.join(__dirname, '../client' + route);
-	console.log(filePath);
+	// console.log(filePath);
 	fs.readFile(filePath, function(err, data) {
 		if ( err != null ) {
 			console.log(err);
