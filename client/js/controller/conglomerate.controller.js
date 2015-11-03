@@ -1,9 +1,23 @@
-Conglomerate.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
+angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
 
-	$scope.deck1Visible = true;
-	$scope.deck2Visible = true;
-	$scope.deck3Visible = true;
-	$scope.deck4Visible = true;
+	$scope.deck1Hide = false;
+	$scope.deck2Hide = false;
+	$scope.deck3Hide = false;
+	$scope.deck4Hide = false;
+
+	var vm = this;
+
+	vm.user = null;
+
+	loadCurrentUser();
+
+        function loadCurrentUser() {
+            UserService.GetByUsername($rootScope.globals.currentUser.username)
+                .then(function (user) {
+                    vm.user = user;
+					console.log(user);
+                });
+        }
 
 	// Parse.getPosts()
 	// .then(function(res) {
