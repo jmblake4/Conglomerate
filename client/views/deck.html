@@ -1,13 +1,15 @@
 <div class="sidebar fill-height absolute tl orange">
 	<img src="../images/conglom-logo.svg" class="logo">
 	<br><br>
-	<img src="../images/plus.svg" class="ng-button btns" ng-click="addStream()">
+	<a class="text-hover" href="" title="Add New Stream">
+		<img src="../images/plus.svg" class="ng-button btns" ng-click="addStream()"></a>
 	<br>
-	<!--<p class="center-text">Add<br>Stream</p>-->
 	<br>
-	<img src="../images/minus.svg" class="btns" ng-click="removeStream()">
+	<a class="text-hover" href="" title="Remove Stream">
+	<img src="../images/minus.svg" class="btns" ng-click="removeStream()"></a>
 	<br>
 </div>
+
 <h1 class="head">Hi {{ vm.user.firstName[0].toUpperCase() + vm.user.firstName.slice(1) }}!</h1>
 <div class="view-inner-container relative">
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
