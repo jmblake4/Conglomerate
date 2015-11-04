@@ -41,5 +41,9 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 		}
 	}
+	
+	$scope.logout = function() {
+		$window.location.href = '#login';
+	}
 
 }]);
