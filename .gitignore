@@ -29,6 +29,7 @@ node_modules
 # JS, css, and map files
 *.css
 *.map
+client/styles/*.css
 
 # Non-essential cordova directories
 cordova/www
