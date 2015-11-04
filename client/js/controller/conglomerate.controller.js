@@ -1,5 +1,5 @@
-angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
-
+angular.module('app').controller('DeckController', ['Guardian', '$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function(Guardian, $scope, $http, $rootScope, $window, $cacheFactory, UserService) {
+// angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
 	$scope.stream1Hide = false;
 	$scope.stream2Hide = false;
 	$scope.stream3Hide = false;
@@ -12,6 +12,15 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 	vm.user = null;
 
 	loadCurrentUser();
+	
+	Guardian.getPosts()
+    .then(function(res) {
+        $scope.blogPosts = res.data.response.results;
+        console.log(res);
+    }).catch(function(err) {
+        console.log(err);
+        alert('There was an error!');
+    });
 
 	function loadCurrentUser() {
 		UserService.GetByUsername($rootScope.globals.currentUser.username)
