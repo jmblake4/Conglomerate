@@ -4,8 +4,8 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 	$scope.stream2Hide = false;
 	$scope.stream3Hide = false;
 	$scope.stream4Hide = false;
-	var visibleStreams = 4;	
-	$scope.widthClass = 'inner-4-width';
+	var visibleStreams = 1;	
+	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 
 	var vm = this;
 
