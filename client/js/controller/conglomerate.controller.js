@@ -21,10 +21,6 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 			});
 	}
 	
-	$scope.toggleDeck1 = function() {
-		$scope.stream1Hide = !$scope.stream1Hide;
-	}
-	
 	$scope.addStream = function() {
 		console.log('adding stream');
 		if ( visibleStreams === 4 ) {
@@ -32,7 +28,6 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 		} else {
 			visibleStreams++;
 			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
-			console.log('$scope.stream' + visibleStreams.toString() + 'Hide = false;')
 			eval('$scope.stream' + visibleStreams.toString() + 'Hide = false;');
 		}
 	}
@@ -41,11 +36,8 @@ angular.module('app').controller('DeckController', ['$scope', '$http', '$rootSco
 		if ( visibleStreams === 1 ) {
 			alert('Only one stream remaining!')
 		} else {
-			console.log('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
-			 eval('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
-			//$scope.deck4Hide = true;
+			eval('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
 			visibleStreams--;
-			console.log('removing stream');
 			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 		}
 	}

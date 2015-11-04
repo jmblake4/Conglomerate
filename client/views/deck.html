@@ -7,11 +7,8 @@
 	<br>
 	<img src="../images/minus.svg" class="btns" ng-click="removeStream()">
 	<br>
-	<!--<p class="center-text">Remove<br>Stream</p>-->
-	<br><br>
-	<button class="ng-button" ng-click="toggleDeck1()">Toggle1</button>
 </div>
-<h1 class="head">Hi {{vm.user.firstName}}!</h1>
+<h1 class="head">Hi {{ vm.user.firstName.toUpperCase() }}!</h1>
 <div class="view-inner-container relative">
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
 		<div class="navbar fill-width absolute tl blue">1</div>
