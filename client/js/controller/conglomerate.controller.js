@@ -1,4 +1,4 @@
-Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
+Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Guardian', 'Weather',  function($scope, $http, $rootScope, $window, $cacheFactory, Guardian, Weather) {
 
 	if ( $rootScope.currentUser.attributes === undefined ) {
 		$window.location.href = '#login';
@@ -37,5 +37,23 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 		Parse.User.logOut();
 		$rootScope.currentUser = null;
 	}
+	
+	Guardian.getPosts()
+    .then(function(res) {
+        $scope.blogPosts = res.data.response.results;
+        console.log(res);
+    }).catch(function(err) {
+        console.log(err);
+        alert('There was an error with the Guardian Feed!');
+    });
+	
+	// Weather.getPosts()
+    // .then(function(res) {
+    //     $scope.blogPosts = res.data.city;
+    //     console.log(res);
+    // }).catch(function(err) {
+    //     console.log(err);
+    //     alert('There was an error with the Weather Feed!');
+    // });
 
 }]);
