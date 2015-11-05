@@ -1,29 +1,28 @@
-(function () {
-    'use strict';
+Conglom.controller('RegisterController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
-    angular
-        .module('app')
-        .controller('RegisterController', RegisterController);
+	$scope.register = function () {
+		console.log($scope.user);
+		
+		var user = new Parse.User();
+		user.set("username", $scope.user.username);
+		user.set("password", $scope.user.password);
+		user.set("email", $scope.user.email);
+		
+		// other fields can be set just like with Parse.Object
+		user.set("somethingelse", "like this!");
+		
+		user.signUp(null, {
+			success: function(user) {
+				console.log(user);
+				$rootScope.currentUser = user;
+				$rootScope.$apply();
+				$window.location.href = "#deck";
+			},
+			error: function(user, error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+		
+	}
 
-    RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
-    function RegisterController(UserService, $location, $rootScope, FlashService) {
-        var vm = this;
-
-        vm.register = register;
-
-        function register() {
-            vm.dataLoading = true;
-            UserService.Create(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Registration successful', true);
-                        $location.path('/login');
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
-        }
-    }
-
-})();
+}]);

@@ -1,4 +1,4 @@
-angular.module('app').factory('Weather', ['$http', '$cacheFactory', '$rootScope', function($http, $cacheFactory, $rootScope) {
+Conglom.factory('Weather', ['$http', '$cacheFactory', '$rootScope', function($http, $cacheFactory, $rootScope) {
 
 	var WeatherFeed = {};
 	

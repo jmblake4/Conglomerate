@@ -1,4 +1,4 @@
-angular.module('app').factory('Guardian', ['$http', '$cacheFactory', '$rootScope', function($http, $cacheFactory, $rootScope) {
+Conglom.factory('Guardian', ['$http', '$cacheFactory', '$rootScope', function($http, $cacheFactory, $rootScope) {
 
 	var GuardianFeed = {};
 

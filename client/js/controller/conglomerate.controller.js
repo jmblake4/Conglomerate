@@ -1,43 +1,16 @@
-angular.module('app').controller('DeckController', ['Guardian', 'Weather', '$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function(Guardian, Weather, $scope, $http, $rootScope, $window, $cacheFactory, UserService) {
-// angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
-	$scope.stream1Hide = false;
-	$scope.stream2Hide = false;
-	$scope.stream3Hide = false;
-	$scope.stream4Hide = false;
-	var visibleStreams = 1;	
-	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
+Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
-	var vm = this;
-
-	vm.user = null;
-
-	loadCurrentUser();
-	
-	Guardian.getPosts()
-    .then(function(res) {
-        $scope.blogPosts = res.data.response.results;
-        console.log(res);
-    }).catch(function(err) {
-        console.log(err);
-        alert('There was an error with the Guardian Feed!');
-    });
-	
-	Weather.getPosts()
-    .then(function(res) {
-        $scope.blogPosts = res.data.city;
-        console.log(res);
-    }).catch(function(err) {
-        console.log(err);
-        alert('There was an error with the Weather Feed!');
-    });
-
-	function loadCurrentUser() {
-		UserService.GetByUsername($rootScope.globals.currentUser.username)
-			.then(function (user) {
-				vm.user = user;
-				console.log(user);
-			});
+	if ( $rootScope.currentUser.attributes === undefined ) {
+		$window.location.href = "#login";
 	}
+
+	$scope.userName = $rootScope.currentUser.attributes.username;
+	$scope.stream1Hide = true;
+	$scope.stream2Hide = true;
+	$scope.stream3Hide = true;
+	$scope.stream4Hide = true;
+	var visibleStreams = 0;	
+	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	
 	$scope.addStream = function() {
 		console.log('adding stream');
@@ -51,8 +24,8 @@ angular.module('app').controller('DeckController', ['Guardian', 'Weather', '$sco
 	}
 	
 	$scope.removeStream = function() {
-		if ( visibleStreams === 1 ) {
-			alert('Only one stream remaining!')
+		if ( visibleStreams === 0 ) {
+			alert('No stream found to remove!');
 		} else {
 			eval('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
 			visibleStreams--;
@@ -61,6 +34,8 @@ angular.module('app').controller('DeckController', ['Guardian', 'Weather', '$sco
 	}
 	
 	$scope.logout = function() {
+		Parse.User.logOut();
+		$rootScope.currentUser = null;
 		$window.location.href = '#login';
 	}
 

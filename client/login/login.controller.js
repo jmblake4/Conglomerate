@@ -1,34 +1,17 @@
-(function () {
-    'use strict';
+Conglom.controller('LoginController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
-    angular
-        .module('app')
-        .controller('LoginController', LoginController);
+	$scope.login = function () {
+		Parse.User.logIn($scope.user.username, $scope.user.password, {
+			success: function(user) {
+				$rootScope.currentUser = user;
+				$rootScope.$apply();
+				$window.location.href = "#deck";
+				console.log($rootScope.currentUser);
+			},
+			error: function(user, error) {
+				alert(error.message);
+			}
+		})
+	}
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
-        var vm = this;
-
-        vm.login = login;
-
-        (function initController() {
-            // reset login status
-            AuthenticationService.ClearCredentials();
-        })();
-
-        function login() {
-            vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/deck');
-                } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                    vm.error = response.message;
-                }
-            });
-        };
-    }
-
-})();
+}]);
