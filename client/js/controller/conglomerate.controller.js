@@ -1,4 +1,4 @@
-angular.module('app').controller('DeckController', ['Guardian', '$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function(Guardian, $scope, $http, $rootScope, $window, $cacheFactory, UserService) {
+angular.module('app').controller('DeckController', ['Guardian', 'Weather', '$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function(Guardian, Weather, $scope, $http, $rootScope, $window, $cacheFactory, UserService) {
 // angular.module('app').controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'UserService',  function($scope, $http, $rootScope, $window, $cacheFactory, UserService) {
 	$scope.stream1Hide = false;
 	$scope.stream2Hide = false;
@@ -19,7 +19,16 @@ angular.module('app').controller('DeckController', ['Guardian', '$scope', '$http
         console.log(res);
     }).catch(function(err) {
         console.log(err);
-        alert('There was an error!');
+        alert('There was an error with the Guardian Feed!');
+    });
+	
+	Weather.getPosts()
+    .then(function(res) {
+        $scope.blogPosts = res.data.city;
+        console.log(res);
+    }).catch(function(err) {
+        console.log(err);
+        alert('There was an error with the Weather Feed!');
     });
 
 	function loadCurrentUser() {

@@ -19,7 +19,7 @@ function requestHandler(req, res){
 	} else if (req.url.slice(-4) === 'html') {
 		header = { 'Content-Type': 'text/html' };
 	} else if (req.url.slice(-3) === 'svg') { 
-		header = { 'Content-Type': 'image/svg+xml'}
+		header = { 'Content-Type': 'image/svg+xml'};
 	} else {
 		res.writeHead(404);
 		res.end();
