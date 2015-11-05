@@ -40,7 +40,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	
 	Guardian.getPosts()
     .then(function(res) {
-        $scope.blogPosts = res.data.response.results;
+        $scope.guardianStream = res.data.response.results;
         console.log(res);
     }).catch(function(err) {
         console.log(err);
