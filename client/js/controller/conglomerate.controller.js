@@ -1,7 +1,7 @@
 Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
 	if ( $rootScope.currentUser.attributes === undefined ) {
-		$window.location.href = "#login";
+		$window.location.href = '#login';
 	}
 
 	$scope.userName = $rootScope.currentUser.attributes.username;
@@ -13,7 +13,6 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	
 	$scope.addStream = function() {
-		console.log('adding stream');
 		if ( visibleStreams === 4 ) {
 			alert('Maximum number of streams already visible!')
 		} else {
@@ -34,9 +33,9 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	}
 	
 	$scope.logout = function() {
+		$window.location.href = '#login';
 		Parse.User.logOut();
 		$rootScope.currentUser = null;
-		$window.location.href = '#login';
 	}
 
 }]);
