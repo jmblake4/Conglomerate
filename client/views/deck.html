@@ -16,7 +16,7 @@
 
 <h1 class="head" ng-cloak>Hi {{ userName }}!</h1>
 <div class="view-inner-container relative" ng-cloak>
-	<div class="view-inner-container-2 {{widthClass}}" ng-hide="stream1Hide">
+	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
 		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
 		<div class="guardianContainer fill-width content-item">
 			<div class="div-fonts" ng-repeat="item in guardianStream">
@@ -28,12 +28,11 @@
 	</div>
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream2Hide">
 		<div class="navbar fill-width absolute tl blue guardian">Weather News</div>
-		<div id="guardianContainer" class="relative fill-width content-item">
+		<div class="guardianContainer fill-width content-item">
 			<h3>{{ weatherStream.name }}</h3>
-			<div class="relative fill-width div-fonts" ng-repeat="item in weatherStream">
-				<h3>Temp{{ item.main.temp }}&#x2109</h3>
-				<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>
-				<p>Posted: {{ item.weather.description }}</p>
+			<h4>Temperature {{ fahrenheit }} &#x2109</h4>
+			<h4>Humidity {{ weatherStream.main.humidity }} &#37;</h4>
+			<img src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
 			</div>
 			
 		</div>

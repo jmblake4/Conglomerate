@@ -48,8 +48,8 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	Weather.getPosts()
     .then(function(res) {
         $scope.weatherStream = res.data;
-		// $scope.weatherCity = res;
-        console.log(res);
+		$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
+		console.log(res);
     }).catch(function(err) {
         alert('There was an error with the Weather Feed!');
     });
