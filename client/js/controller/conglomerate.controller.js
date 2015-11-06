@@ -49,7 +49,8 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 
 	Weather.getPosts()
     .then(function(res) {
-        $scope.blogPosts = res.data.city;
+        $scope.weatherStream = res.data;
+		// $scope.weatherCity = res;
         console.log(res);
     }).catch(function(err) {
         console.log(err);
