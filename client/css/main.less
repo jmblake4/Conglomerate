@@ -2,41 +2,34 @@
 @font-size: 1em; 
 
 .view-container {
-
 	@sidebar-width: 5em;
 	@navbar-height: 2em;
 	@footer-height: 4em;
-
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
-
 	.view-inner-container {
 		padding-left: @sidebar-width;
 		height: 100%;
 		width: 100%;
 		box-sizing: border-box;
+		position: relative;
 		.navbar {
 			height: 3em;
 		}
 	}
-
 	.inner-1-width {
 		width: 100%;
 	}
-
 	.inner-2-width {
 		width: 50%;
 	}
-
 	.inner-3-width {
 		width: 33.3%;
 	}
-
 	.inner-4-width {
 		width: 25%;
 	}
-
 	.view-inner-container-2 {
 		height: 100%;
 		padding-top: @navbar-height;
@@ -46,7 +39,6 @@
 			height: @navbar-height;
 		}
 	}
-
 	.sidebar {
 		width: @sidebar-width;
 		z-index: 1;
