@@ -20,9 +20,9 @@
 		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
 		<div id="guardianContainer" class="relative fill-width content-item">
 			<div class="relative fill-width div-fonts" ng-repeat="item in guardianStream">
-				<h3> {{ item.webTitle }}</h3>
-				<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>
-				<p>Posted: {{ item.webPublicationDate }}</p>
+				<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>
+				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
+				<p>Posted: {{ item.webPublicationDate | date : shortDate }}</p>
 			</div>
 		</div>
 	</div>
