@@ -7,7 +7,7 @@ Conglom.factory('Weather', ['$http', '$cacheFactory', '$rootScope', function($ht
 		"Content-Type": "application/json"
 	};
 
-	var urlPath = encodeURI('http://api.openweathermap.org/data/2.5/weather?id=4049979&APPID=26c35d41ead43cdf58f2b5b32d00cd45');
+	var urlPath = encodeURI('http://api.openweathermap.org/data/2.5/weather?q=Birmingham,US&appid=26c35d41ead43cdf58f2b5b32d00cd45');
 
 	WeatherFeed.getPosts = function() {
 		return $http({
