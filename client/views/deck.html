@@ -1,3 +1,6 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+</head>
 <div class="sidebar fill-height absolute tl orange">
 	<img src="../images/conglom-logo.svg" class="logo">
 	<br><br>
@@ -14,12 +17,12 @@
 <h1 class="head">Hi {{ userName }}!</h1>
 <div class="view-inner-container relative">
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
-		<div class="navbar fill-width absolute tl blue">1</div>
+		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
 		<div id="guardianContainer" class="relative fill-width content-item">
-			<div class="relative fill-width" ng-repeat="item in guardianStream">
-				<h3> {{ item.webTitle }} </a></h3>
-				<div><a href="{{item.webUrl}}">{{item.webUrl}}</a></div>
-				<div>{{ item.webPublicationDate }}</div>
+			<div class="relative fill-width div-fonts" ng-repeat="item in guardianStream">
+				<h3> {{ item.webTitle }}</h3>
+				<a href="{{item.webUrl}}">{{item.webUrl}}</a>
+				<p>Posted: {{ item.webPublicationDate }}</p>
 			</div>
 		</div>
 	</div>
