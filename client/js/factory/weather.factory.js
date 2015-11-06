@@ -3,7 +3,7 @@ Conglom.factory('Weather', ['$http', '$cacheFactory', '$rootScope', function($ht
 	var WeatherFeed = {};
 	
 	var reqHeaders = {
-		 "x-api-key": "26c35d41ead43cdf58f2b5b32d00cd45",
+		"x-api-key": "26c35d41ead43cdf58f2b5b32d00cd45",
 		"Content-Type": "application/json"
 	};
 
