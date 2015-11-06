@@ -16,10 +16,10 @@
 
 <h1 class="head">Hi {{ userName }}!</h1>
 <div class="view-inner-container relative">
-	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
+	<div class="view-inner-container-2 {{widthClass}}" ng-hide="stream1Hide">
 		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
-		<div id="guardianContainer" class="relative fill-width content-item">
-			<div class="relative fill-width div-fonts" ng-repeat="item in guardianStream">
+		<div class="guardianContainer fill-width content-item">
+			<div class="div-fonts" ng-repeat="item in guardianStream">
 				<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>
 				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
 				<p>Posted: {{ item.webPublicationDate | date : shortDate }}</p>
