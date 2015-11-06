@@ -41,18 +41,14 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	Guardian.getPosts()
     .then(function(res) {
         $scope.guardianStream = res.data.response.results;
-        // console.log(res);
     }).catch(function(err) {
-        console.log(err);
         alert('There was an error with the Guardian Feed!');
     });
 
 	Weather.getPosts()
     .then(function(res) {
         $scope.blogPosts = res.data.city;
-        console.log(res);
     }).catch(function(err) {
-        console.log(err);
         alert('There was an error with the Weather Feed!');
     });
 
