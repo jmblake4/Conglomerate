@@ -1,4 +1,4 @@
-Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', 'Guardian', 'Weather',  function($scope, $http, $rootScope, $window, $cacheFactory, Guardian, Weather) {
+Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', '$log', 'VideosService', 'Guardian', 'Weather',  function($scope, $http, $rootScope, $window, $cacheFactory, $log, VideosService, Guardian, Weather) {
 
 	if ( $rootScope.currentUser === null || $rootScope.currentUser.attributes === undefined ) {
 		$window.location.href = '#login';
@@ -49,9 +49,66 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
     .then(function(res) {
         $scope.weatherStream = res.data;
 		$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
-		console.log(res);
+		// console.log(res);
     }).catch(function(err) {
         alert('There was an error with the Weather Feed!');
     });
+	
+// --------------------------- Youtube Below --------------------------
+	// Controller
+    
+    init();
+
+    function init() {
+      $scope.youtube = VideosService.getYoutube();
+      $scope.results = VideosService.getResults();
+      $scope.history = VideosService.getHistory();
+    }
+
+    $scope.launch = function (video, archive) {
+      VideosService.launchPlayer(video.id, video.title);
+      if (archive) {
+      	VideosService.archiveVideo(video);
+      }
+      $log.info('Launched id:' + video.id + ' and title:' + video.title);
+    };
+
+    $scope.nextPageToken = '';
+    $scope.label = 'You haven\'t searched for any video yet!';
+    $scope.loading = false;
+
+    $scope.search = function (isNewQuery) {
+      $scope.loading = true;
+      $http.get('https://www.googleapis.com/youtube/v3/search', {
+        params: {
+          key: 'AIzaSyC92qoRfAKCCxkAudodL0RlLNQPRBXcTTE',
+          type: 'video',
+          maxResults: '5',
+          pageToken: isNewQuery ? '' : $scope.nextPageToken,
+          part: 'id,snippet',
+          fields: 'items/id,items/snippet/title,items/snippet/description,items/snippet/thumbnails/default,items/snippet/channelTitle,nextPageToken',
+          q: this.query
+        }
+      })
+      .success( function (data) {
+        if (data.items.length === 0) {
+          $scope.label = 'No results were found!';
+        }
+        VideosService.listResults(data, $scope.nextPageToken && !isNewQuery);
+        $scope.nextPageToken = data.nextPageToken;
+        $log.info(data);
+      })
+      .error( function () {
+        $log.info('Search error');
+      })
+      .finally( function () {
+        $scope.loadMoreButton.stopSpin();
+        $scope.loadMoreButton.setDisabled(false);
+        $scope.loading = false;
+      })
+      ;
+    };
+    
+//    ------------------------ End Youtube ---------------------------------
 
 }]);
