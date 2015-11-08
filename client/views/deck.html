@@ -14,8 +14,8 @@
 	<img src="../images/logout.svg" class="btns logout" ng-click="logout()" />
 </div>
 
-<h3 class="head" ng-cloak>Hi {{ userName }}!</h3>
 <div class="view-inner-container relative" ng-cloak>
+	<!--<div class="absolute tl fill-width hi-message">Hi {{ userName }}!</div>-->
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream1Hide">
 		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
@@ -41,21 +41,16 @@
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream3Hide">
 		<div class="navbar fill-width absolute tl blue">You Tube</div>
-		<div class="guardianContainer fill-width content-item">
-			<div class="content-item">
-				<div ng-app="Conglom" ng-controller="DeckController">
-					<ons-modal var="modal" ng-click="youtube.player.stopVideo(); modal.hide();">
-						<div id="player">
-							<div id="placeholder" style="width: 100%"></div>
-						</div>
-					</ons-modal>
-					
-					<ons-tabbar>
-						<ons-tab page="../html/search.html" persistent no-reload active="true" icon="fa fa-search" label="Search"></ons-tab>
-						<ons-tab page="../html/history.html" persistent no-reload  icon="fa fa-history" label="History"></ons-tab>
-					</ons-tabbar>
+		<div class="guardianContainer fill-width content-item" ng-controller="VideosController">
+			<ons-modal var="modal" ng-click="youtube.player.stopVideo(); modal.hide();">
+				<div id="player">
+					<div id="placeholder" style="width: 100%"></div>
 				</div>
-			</div>
+			</ons-modal>			
+			<ons-tabbar>
+				<ons-tab page="../html/search.html" persistent no-reload active="true" icon="fa fa-search" label="Search"></ons-tab>
+				<ons-tab page="../html/history.html" persistent no-reload  icon="fa fa-history" label="History"></ons-tab>
+			</ons-tabbar>
 		</div>
 	</div>
 	
@@ -64,7 +59,3 @@
 	</div>
 	
 </div>
-
-		<!--<iframe type="text/html" width="320" height="245"
-		src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" frameborder="0">
-		</iframe>-->

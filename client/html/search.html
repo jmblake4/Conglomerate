@@ -1,13 +1,13 @@
 <ons-page>
-  <ons-toolbar id="searchToolbar" style="position: fixed;" fixed-style>
+  <!--<ons-toolbar id="searchToolbar" style="position: absolute;" fixed-style>
     <div class="center youtube-toolbar">Onsen UI YouTube - Search</div>
-  </ons-toolbar>
-  <div class="search-bar youtube-toolbar">
+  </ons-toolbar>-->
+  <div class="search-bar youtube-toolbar absolute">
     <form ng-submit="search(true)">
       <input type="search" class="search-input" placeholder="Search for videos in YouTube" ng-model="query">
     </form>
   </div>
-  <ons-list class="after-search-bar">
+  <ons-list class="after-search-bar relative">
     <ons-list-item modifier="tappable" class="list-item-container" ng-repeat="video in results track by $index" ng-click="modal.show(); launch(video, true)">
       <ons-row>
         <ons-col width="95px">

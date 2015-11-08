@@ -6,7 +6,6 @@ Conglom.controller('LoginController', ['$scope', '$http', '$rootScope', '$window
 				$rootScope.currentUser = user;
 				$rootScope.$apply();
 				$window.location.href = "#deck";
-				console.log($rootScope.currentUser);
 			},
 			error: function(user, error) {
 				alert(error.message);
