@@ -11,6 +11,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	$scope.stream4Hide = true;
 	var visibleStreams = 0;
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
+	$scope.movieList = [];
 
 	$scope.addStream = function() {
 		if ( visibleStreams === 4 ) {
@@ -59,6 +60,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
         TMDBFactory.getMovieInfo(movieTitle)
         .then(function(res) {
             console.log(res);
+			$scope.movieList = res.data.results;
         }).catch(function(err) {
             alert('Error: ' + err.message);
         });

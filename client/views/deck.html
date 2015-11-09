@@ -58,8 +58,15 @@
 		<div class="navbar fill-width absolute tl blue guardian">TMDb</div>
 		<div class="guardianContainer content-item">
 			<input id="movie" type="text" ng-model="movieTitle"/><button ng-click="movieSearch()">Search</button>
-			<!--<h3>{{tmdbStream.original_title}}</h3>
-			<img src="{{tmdbStream.poster_path}}" alt="">-->
+			<div class="div-fonts" ng-repeat="item in movieList">
+				<!--<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>-->
+				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
+				<p>{{ item.title }}</p>
+			</div>
+
+			<h3>{{tmdbStream.original_title}}</h3>
+			<h3>{{tmdbStream.poster_path}}</h3>
+			<img src="{{tmdbStream.poster_path}}" alt="">
 		</div>
 	</div>
 </div>
