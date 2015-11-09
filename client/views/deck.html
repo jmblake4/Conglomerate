@@ -55,6 +55,11 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream4Hide">
-		<div class="navbar fill-width absolute tl blue">4</div>
+		<div class="navbar fill-width absolute tl blue guardian">TMDb</div>
+		<div class="guardianContainer content-item">
+			<input id="movie" type="text" ng-model="movieTitle"/><button ng-click="movieSearch()">Search</button>
+			<!--<h3>{{tmdbStream.original_title}}</h3>
+			<img src="{{tmdbStream.poster_path}}" alt="">-->
+		</div>
 	</div>
 </div>
