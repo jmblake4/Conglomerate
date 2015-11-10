@@ -20,11 +20,11 @@
 	<a class="text-hover" href="" title="Add Redddit Stream">
 		<img src="../images/reddit.png" class="ng-button btns" ng-click="addStream()"></a>
 	<br>
-	<a class="text-hover" href="" title="Add Gmail Stream">
-		<img src="../images/gmail.png" class="ng-button btns" ng-click="addStream()"></a>
-	<br>
 	<a class="text-hover" href="" title="Add Twitter Stream">
 		<img src="../images/twitter.png" class="ng-button btns" ng-click="addStream()"></a>
+	<br>
+	<a class="text-hover" href="" title="Add Gmail Stream">
+		<img src="../images/gmail.png" class="ng-button btns" ng-click="addStream()"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Yahoo Stream">
 		<img src="../images/yahoo.png" class="ng-button btns" ng-click="addStream()"></a>
@@ -86,11 +86,12 @@
 			<div class="div-fonts" ng-repeat="item in movieList">
 				<!--<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>-->
 				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
-				<p>{{ item.title }}</p>
+				<h4>{{ item.title }}</h4>
+				<p><span class="bold"><strong>Release Date:</strong></span> {{ item.release_date | date: shortDate }}</p>
+				<p><span class="bold">Synopsis:</span> {{ item.overview }}</p>
+				<p><span class="bold">Rating:</span> {{ item.vote_average }}</p>
+				<p>{{ item.poster_path }}</p>
 			</div>
-
-			<h3>{{tmdbStream.original_title}}</h3>
-			<h3>{{tmdbStream.poster_path}}</h3>
 			<img src="{{tmdbStream.poster_path}}" alt="">
 		</div>
 	</div>
