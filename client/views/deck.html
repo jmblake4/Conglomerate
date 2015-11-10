@@ -86,7 +86,7 @@
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="stream4Hide">
 		<div class="navbar fill-width absolute tl blue guardian">Movie Database</div>
 		<div class="guardianContainer content-item">
-			<input id="movie" type="text" ng-model="movieTitle"/><button ng-click="movieSearch()">Search</button>
+			<input id="movie" type="text" ng-model="movieTitle" placeholder="Find Movies and more..."/><button class="yel-btn" ng-click="movieSearch()">Search</button>
 			<div class="div-fonts" ng-repeat="item in movieList">
 				<!--<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>-->
 				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
