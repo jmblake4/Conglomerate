@@ -46,14 +46,23 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
         alert('There was an error with the Guardian Feed!');
     });
 
-	Weather.getPosts()
-    .then(function(res) {
-        $scope.weatherStream = res.data;
-		$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
+	Weather.getCurrentPositionDeferred()
+	.then(function(position) {
+		console.log(position);
+		return Weather.getPosts(position.coords.latitude, position.coords.longitude);
+	}).then(function(res) {
+		console.log(res);
+	}).catch(function(err) {
+		alert('Error: ' + err.message);
+	});
+	// Weather.getPosts()
+    // .then(function(res) {
+        // $scope.weatherStream = res.data;
+		// $scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
 		// console.log(res);
-    }).catch(function(err) {
-        alert('There was an error with the Weather Feed!');
-    });
+    // }).catch(function(err) {
+        // alert('There was an error with the Weather Feed!\n' + err.message);
+    // });
     
     $scope.movieSearch = function() {
         var movieTitle = $scope.movieTitle;
