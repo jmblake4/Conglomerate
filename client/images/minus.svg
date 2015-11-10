@@ -2,13 +2,12 @@
 <!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="12.903px" height="6.418px" viewBox="-0.492 -0.946 12.903 6.418" enable-background="new -0.492 -0.946 12.903 6.418"
+	 width="12.903px" height="5.143px" viewBox="-0.492 -0.946 12.903 5.143" enable-background="new -0.492 -0.946 12.903 5.143"
 	 xml:space="preserve">
 <g>
 	<g>
-		<path fill="#D62128" stroke="#FFFFFF" stroke-width="0.75" stroke-miterlimit="10" d="M0.619,4.197
-			c-0.287,0-0.461-0.172-0.461-0.52V0.211c0-0.173,0.203-0.317,0.52-0.317h10.682c0.201,0,0.402,0.145,0.402,0.432v3.555
-			c0,0.23-0.172,0.318-0.604,0.318H0.619V4.197z"/>
+		<path fill="#D62128" d="M0.603,3.212c-0.277,0-0.445-0.16-0.445-0.484V0.191c0-0.162,0.196-0.297,0.501-0.297h10.312
+			c0.194,0,0.389,0.135,0.389,0.404v2.619c0,0.215-0.166,0.297-0.583,0.297H0.603V3.212z"/>
 	</g>
 </g>
 </svg>
