@@ -48,10 +48,8 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 
 	Weather.getCurrentPositionDeferred()
 	.then(function(position) {
-		console.log('lat: ' + position.coords.latitude + ' long: ' + position.coords.longitude);
 		Weather.getPosts(position.coords.latitude, position.coords.longitude)
 		.then(function(res) {
-			console.log(res);
 			$scope.weatherStream = res.data;
 			$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
 		});
@@ -61,7 +59,6 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
         var movieTitle = $scope.movieTitle;
         TMDBFactory.getMovieInfo(movieTitle)
         .then(function(res) {
-            console.log(res);
 			$scope.movieList = res.data.results;
         }).catch(function(err) {
             alert('Error: ' + err.message);
