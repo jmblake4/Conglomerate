@@ -1,26 +1,28 @@
 Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', '$log', 'VideosService', 'TMDBFactory', 'Guardian', 'Weather',  function($scope, $http, $rootScope, $window, $cacheFactory, $log, VideosService, TMDBFactory, Guardian, Weather) {
 
-	if ( $rootScope.currentUser === null || $rootScope.currentUser.attributes === undefined ) {
+	if ($rootScope.currentUser === null || $rootScope.currentUser.attributes === undefined) {
 		$window.location.href = '#login';
 	}
 
 	$scope.userName = $rootScope.currentUser.attributes.username;
-	$scope.stream1Hide = true;
-	$scope.stream2Hide = true;
-	$scope.stream3Hide = true;
-	$scope.stream4Hide = true;
+	$scope.guardianHidden = true;
+	$scope.weatherHidden = true;
+	$scope.youtubeHidden = true;
+	$scope.imdbHidden = true;
 	var visibleStreams = 0;
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	$scope.movieList = [];
 
-	$scope.addStream = function() {
-		if ( visibleStreams === 4 ) {
-			alert('Maximum number of streams already visible!')
-		} else {
-			visibleStreams++;
-			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
-			eval('$scope.stream' + visibleStreams.toString() + 'Hide = false;');
+	$scope.toggle = function(streamName) {
+		console.log(streamName);
+		var hidden = eval('$scope.' + streamName + 'Hidden');
+		if (visibleStreams === 4 && hidden) {
+			alert('Maximum number of streams already visible!');
+			return;
 		}
+		hidden ? visibleStreams++ : visibleStreams--;
+		eval('$scope.' + streamName + 'Hidden = !$scope.' + streamName + 'Hidden;');
+		$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	}
 
 	$scope.removeStream = function() {
