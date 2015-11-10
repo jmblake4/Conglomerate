@@ -51,7 +51,7 @@
 		<div class="navbar fill-width absolute tl blue guardian">Local Weather</div>
 		<div class="guardianContainer fill-width content-item">
 			<h3>{{ weatherStream.name }}</h3>
-			<img src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
+			<img class="weather-image" src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
 			<h4>Temperature {{ fahrenheit }} &#x2109</h4>
 			<h4>Humidity {{ weatherStream.main.humidity }} &#37;</h4>
 			<h4>{{ weatherStream.weather[0].description }}</h4>
