@@ -20,6 +20,8 @@ function requestHandler(req, res){
 		header = { 'Content-Type': 'text/html' };
 	} else if (req.url.slice(-3) === 'svg') { 
 		header = { 'Content-Type': 'image/svg+xml'};
+	} else if (req.url.slice(-3) === 'png') { 
+		header = { 'Content-Type': 'image/png'};
 	} else {
 		res.writeHead(404);
 		res.end();
