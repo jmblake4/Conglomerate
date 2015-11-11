@@ -15,10 +15,10 @@
 		<img src="../images/youtubesmall.png" class="ng-button btns" ng-click="toggle('youtube')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Movie Database Stream">
-		<img src="../images/imdbroundsmall.png" class="ng-button btns" ng-click="toggle('imdb')"></a>
+		<img src="../images/imdb.png" class="ng-button btns" ng-click="toggle('movieTest')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Redddit Stream">
-		<img src="../images/reddit.png" class="ng-button btns" ng-click="toggle('movieTest')"></a>
+		<img src="../images/reddit.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Twitter Stream">
 		<img src="../images/twitter.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
@@ -77,34 +77,8 @@
 		</div>
 	</div>
 	
-	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="imdbHidden">
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdbroundsmall.png" width="30em" alt=""></div>
-		<div class="guardianContainer content-item">
-			<input id="movie" type="text" ng-model="movieTitle" placeholder="Find Movies and more..."/><button class="yel-btn" ng-click="movieSearch()">Search</button>
-			<div class="div-fonts" ng-repeat="item in movieList">
-				<!--<a href="{{item.webUrl}}"><h3> {{ item.webTitle }}</h3></a>-->
-				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
-				<h4>{{ item.title }}</h4>
-				<p><span class="bold"><strong>Release Date:</strong></span> {{ item.release_date | date: shortDate }}</p>
-				<p><span class="bold">Synopsis:</span> {{ item.overview }}</p>
-				<p><span class="bold">Rating:</span> {{ item.vote_average }}</p>
-				<p>{{ item.poster_path }}</p>
-			</div>
-			<img src="{{tmdbStream.poster_path}}" alt="">
-		</div>
-	</div>
-	
-	
 	<div class="view-inner-container-2 relative {{widthClass}} container-fluid outerdiv" ng-hide="movieTestHidden">
-	
-	<!--<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#"><b>Fastr</b> <span class="span-style">Movie Browser</span></a>
-		</div>
-		</div>
-	</nav>-->
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdbroundsmall.png" width="30em" alt=""></div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdb.png" width="30em" alt=""></div>
 	
 		<div class="animated zoomInRight guardianContainer content-item">
 			<div class="input-group search-bar">
