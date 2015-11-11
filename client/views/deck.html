@@ -51,7 +51,7 @@
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item">
 			<h3>{{ weatherStream.name }}</h3>
-			<img src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
+			<img class="weather-image" src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
 			<h4>Temperature {{ fahrenheit }} &#x2109</h4>
 			<h4>Humidity {{ weatherStream.main.humidity }} &#37;</h4>
 			<h4>{{ weatherStream.weather[0].description }}</h4>
@@ -92,7 +92,7 @@
 			</div>
 		
 			<div ng-if="details.Response==='True'">
-				<img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="thumbnail animated flip movie-poster">
+				<img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="animated flip movie-poster">
 		
 				<span class="span-outer">
 				<a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
