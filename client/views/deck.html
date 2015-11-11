@@ -37,7 +37,7 @@
 	<!--<div class="absolute tl fill-width hi-message">Hi {{ userName }}!</div>-->
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="guardianHidden">
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/guardiansmall.png" width="30em" alt=""></div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/guardiansmall.png" width="47em" alt=""></div>
 		<div class="guardianContainer fill-width content-item">
 			<div class="div-fonts" ng-repeat="item in guardianStream">
 				<a href="{{item.webUrl}}"><h5> {{ item.webTitle }}</h5></a>
@@ -48,7 +48,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="weatherHidden">
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="47em" alt=""></div>
 		<div class="guardianContainer fill-width content-item">
 			<h3>{{ weatherStream.name }}</h3>
 			<img src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
@@ -63,7 +63,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="youtubeHidden">
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/youtubesmall.png" width="30em" alt=""></div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/youtubesmall.png" width="47em" alt=""></div>
 		<div class="guardianContainer content-item" ng-controller="VideosController">
 			<ons-modal var="modal" ng-click="youtube.player.stopVideo(); modal.hide();">
 				<div id="player">
@@ -78,7 +78,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}} container-fluid outerdiv" ng-hide="movieTestHidden">
-		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdb.png" width="30em" alt=""></div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdb.png" width="47em" alt=""></div>
 	
 		<div class="animated zoomInRight guardianContainer content-item">
 			<div class="input-group search-bar">
