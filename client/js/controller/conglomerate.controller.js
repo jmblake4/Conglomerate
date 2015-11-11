@@ -77,7 +77,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	
     if ($scope.search === undefined) {
-      $scope.search = "Sherlock Holmes";
+      $scope.search = "";
       fetch();
     }
 
