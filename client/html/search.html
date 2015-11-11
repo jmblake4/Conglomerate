@@ -10,9 +10,11 @@
   <ons-list class="after-search-bar relative">
     <ons-list-item modifier="tappable" class="list-item-container" ng-repeat="video in results track by $index" ng-click="modal.show(); launch(video, true)">
       <ons-row>
-        <ons-col width="10em">
+        <ons-col width="90%">
           <img class="thumbnail" ng-src="{{ video.thumbnail }}">
         </ons-col>
+			</ons-row>
+      <ons-row>
         <ons-col>
           <div class="title">
             {{ video.title }}
@@ -24,8 +26,10 @@
             {{ video.description }}
           </div>
         </ons-col>
+			</ons-row>
+			<!--<ons-row>
         <ons-col width="40px"></ons-col>
-      </ons-row>
+      </ons-row>-->
     </ons-list-item>
   </ons-list>
   <p class="after-list" ng-show="results.length === 0">
