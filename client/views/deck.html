@@ -5,7 +5,7 @@
 	<img src="../images/conglom-logo2.png" class="logo">
 	<br><br>
 	
-	<a class="text-hover" href="" title="Add Guardian Stream">
+	<a class="text-hover" href="" title="Add Guardian News Stream">
 		<img src="../images/guardiansmall.png" class="ng-button btns" ng-click="toggle('guardian')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Weather Stream">
@@ -37,7 +37,7 @@
 	<!--<div class="absolute tl fill-width hi-message">Hi {{ userName }}!</div>-->
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="guardianHidden">
-		<div class="navbar fill-width absolute tl blue guardian">Guardian News</div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/guardiansmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item">
 			<div class="div-fonts" ng-repeat="item in guardianStream">
 				<a href="{{item.webUrl}}"><h5> {{ item.webTitle }}</h5></a>
@@ -48,7 +48,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="weatherHidden">
-		<div class="navbar fill-width absolute tl blue guardian">Local Weather</div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item">
 			<h3>{{ weatherStream.name }}</h3>
 			<img class="weather-image" src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
@@ -63,7 +63,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="youtubeHidden">
-		<div class="navbar fill-width absolute tl blue guardian">YouTube</div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/youtubesmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer content-item" ng-controller="VideosController">
 			<ons-modal var="modal" ng-click="youtube.player.stopVideo(); modal.hide();">
 				<div id="player">
@@ -78,7 +78,7 @@
 	</div>
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="imdbHidden">
-		<div class="navbar fill-width absolute tl blue guardian">Movie Database</div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdbroundsmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer content-item">
 			<input id="movie" type="text" ng-model="movieTitle" placeholder="Find Movies and more..."/><button class="yel-btn" ng-click="movieSearch()">Search</button>
 			<div class="div-fonts" ng-repeat="item in movieList">
@@ -104,7 +104,7 @@
 		</div>
 		</div>
 	</nav>-->
-		<div class="navbar fill-width absolute tl blue guardian">Movie Database</div>
+		<div class="navbar fill-width absolute tl blue guardian"><img src="../images/imdbroundsmall.png" width="30em" alt=""></div>
 	
 		<div class="animated zoomInRight guardianContainer content-item">
 			<div class="input-group search-bar">
