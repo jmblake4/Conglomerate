@@ -22,6 +22,8 @@ function requestHandler(req, res){
 		header = { 'Content-Type': 'image/svg+xml'};
 	} else if (req.url.slice(-3) === 'png') { 
 		header = { 'Content-Type': 'image/png'};
+	} else if (req.url.slice(-3) === 'jpg' || req.url.slice(-4) === 'jpeg') { 
+		header = { 'Content-Type': 'image/jpeg'};
 	} else {
 		res.writeHead(404);
 		res.end();

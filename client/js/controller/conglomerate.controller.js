@@ -16,7 +16,6 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
     var pendingTask;
 
 	$scope.toggle = function(streamName) {
-		console.log(streamName);
 		var hidden = eval('$scope.' + streamName + 'Hidden');
 		if (visibleStreams === 4 && hidden) {
 			alert('Maximum number of streams already visible!');
@@ -55,7 +54,46 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 		Weather.getPosts(position.coords.latitude, position.coords.longitude)
 		.then(function(res) {
 			$scope.weatherStream = res.data;
+			var icon = res.data.weather[0].icon;
 			$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
+			icon = '09d';
+			if (icon === '01d') {
+				console.log('daytime clear');
+				$scope.textStyle = {
+					'color': 'black',
+				};
+				$scope.weatherImage = '../images/sunnysmall.jpg';
+			} else if (icon === '02d' || icon === '03d' || icon === '04d') {
+				console.log('daytime cloudy');
+				$scope.textStyle = {
+					'color': 'black',
+				};
+				$scope.weatherImage = '../images/cloudy2small.jpg';
+			} else if (icon === '09d' || icon === '10d' || icon === '11d') {
+				console.log('daytime stormy');
+				$scope.textStyle = {
+					'color': 'black',
+				};
+				$scope.weatherImage = '../images/rainsmall.jpg';
+			} else if (icon === '01n') {
+				console.log('night clear');
+				$scope.textStyle = {
+					'color': 'white',
+				};
+				$scope.weatherImage = '../images/nightsmall.jpg';
+			} else if (icon === '02n' || icon === '03n' || icon === '04n') {
+				console.log('night cloudy');
+				$scope.textStyle = {
+					'color': 'white',
+				};
+				$scope.weatherImage = '../images/nightcloudy.jpg';
+			} else if (icon === '09n' || icon === '10n' || icon === '11d') {
+				console.log('night stormy');
+				$scope.textStyle = {
+					'color': 'red',
+				};
+				$scope.weatherImage = '../images/rainsmall.jpg';
+			}
 		});
 	});
     

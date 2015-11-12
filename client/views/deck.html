@@ -49,16 +49,16 @@
 	
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="weatherHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
-		<div class="guardianContainer fill-width content-item">
-			<h3>{{ weatherStream.name }}</h3>
+		<div class="guardianContainer fill-width content-item" style="background-image: url({{weatherImage}})">
+			<h3 ng-style="textStyle">{{ weatherStream.name }}</h3>
 			<img class="weather-image" src="http://openweathermap.org/img/w/{{weatherStream.weather[0].icon}}.png">
-			<h4>Temperature {{ fahrenheit }} &#x2109</h4>
-			<h4>Humidity {{ weatherStream.main.humidity }} &#37;</h4>
-			<h4>{{ weatherStream.weather[0].description }}</h4>
-			<h4>Pressure: {{ weatherStream.main.pressure }}</h4>
-			<h4>Wind speed: {{ weatherStream.wind.speed }}</h4>
-			<h4>Latitude: {{ weatherStream.coord.lat }}</h4>
-			<h4>Longitude: {{ weatherStream.coord.lon }}</h4>			
+			<h4 ng-style="textStyle">Temperature {{ fahrenheit }} &#x2109</h4>
+			<h4 ng-style="textStyle">Humidity {{ weatherStream.main.humidity }} &#37;</h4>
+			<h4 ng-style="textStyle">{{ weatherStream.weather[0].description }}</h4>
+			<h4 ng-style="textStyle">Pressure: {{ weatherStream.main.pressure }}</h4>
+			<h4 ng-style="textStyle">Wind speed: {{ weatherStream.wind.speed }}</h4>
+			<h4 ng-style="textStyle">Latitude: {{ weatherStream.coord.lat }}</h4>
+			<h4 ng-style="textStyle">Longitude: {{ weatherStream.coord.lon }}</h4>			
 		</div>
 	</div>
 	
