@@ -20,7 +20,7 @@ Conglom.controller('VideosController', function ($window, $scope, $http, $log, V
 	};
 
 	$scope.nextPageToken = '';
-	$scope.label = 'You haven\'t searched for any video yet!';
+	$scope.label = 'You haven\'t searched for any videos yet!';
 	$scope.loading = false;
 
 	$scope.search = function (isNewQuery) {
