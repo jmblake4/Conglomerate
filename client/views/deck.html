@@ -55,10 +55,10 @@
 			<h4 ng-style="textStyle">Temperature {{ fahrenheit }} &#x2109</h4>
 			<h4 ng-style="textStyle">Humidity {{ weatherStream.main.humidity }} &#37;</h4>
 			<h4 ng-style="textStyle">{{ weatherStream.weather[0].description }}</h4>
-			<h4 ng-style="textStyle">Pressure: {{ weatherStream.main.pressure }}</h4>
-			<h4 ng-style="textStyle">Wind speed: {{ weatherStream.wind.speed }}</h4>
-			<h4 ng-style="textStyle">Latitude: {{ weatherStream.coord.lat }}</h4>
-			<h4 ng-style="textStyle">Longitude: {{ weatherStream.coord.lon }}</h4>			
+			<h4 ng-style="textStyle">Pressure: {{ weatherStream.main.pressure }} mBar</h4>
+			<h4 ng-style="textStyle">Wind speed: {{ weatherStream.wind.speed }} MPH</h4>
+			<h4 ng-style="textStyle">Latitude: {{ weatherStream.coord.lat }} &#176;</h4>
+			<h4 ng-style="textStyle">Longitude: {{ weatherStream.coord.lon }} &#176;</h4>			
 		</div>
 	</div>
 	
