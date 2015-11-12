@@ -8,8 +8,12 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	$scope.guardianHidden = true;
 	$scope.weatherHidden = true;
 	$scope.youtubeHidden = true;
-	$scope.imdbHidden = true;
+	// $scope.imdbHidden = true;
 	$scope.movieTestHidden = true;
+	$scope.redditHidden = true;
+	$scope.twitterHidden = true;
+	$scope.gmailHidden = true;
+	$scope.yahooHidden = true;
 	var visibleStreams = 0;
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	$scope.movieList = []
