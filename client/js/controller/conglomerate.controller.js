@@ -71,7 +71,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 			} else if (icon === '09d' || icon === '10d' || icon === '11d') {
 				console.log('daytime stormy');
 				$scope.textStyle = {
-					'color': 'black',
+					'color': 'white',
 				};
 				$scope.weatherImage = '../images/rainsmall.jpg';
 			} else if (icon === '01n') {
