@@ -18,16 +18,16 @@
 		<img src="../images/imdb.png" class="ng-button btns" ng-click="toggle('movieTest')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Redddit Stream">
-		<img src="../images/reddit.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
+		<img src="../images/reddit.png" class="ng-button btns" ng-click="toggle('reddit')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Twitter Stream">
-		<img src="../images/twitter.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
+		<img src="../images/twitter.png" class="ng-button btns" ng-click="toggle('twitter')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Gmail Stream">
-		<img src="../images/gmail.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
+		<img src="../images/gmail.png" class="ng-button btns" ng-click="toggle('gmail')"></a>
 	<br>
 	<a class="text-hover" href="" title="Add Yahoo Stream">
-		<img src="../images/yahoo.png" class="ng-button btns" ng-click="toBeImplemented()"></a>
+		<img src="../images/yahoo.png" class="ng-button btns" ng-click="toggle('yahoo')"></a>
 	<br><br><br>
 	
 	<img src="../images/logout.svg" class="logout" ng-click="logout()" />
@@ -151,7 +151,35 @@
 			</div>
 		</div>
 	</div>	
-
+	
+	
+	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="redditHidden">
+		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/reddit.png" width="30em" alt=""></div>
+		<div class="guardianContainer fill-width content-item" style="background-image: url()">
+			
+		</div>
+	</div>
+	
+	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="twitterHidden">
+		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/twitter.png" width="30em" alt=""></div>
+		<div class="guardianContainer fill-width content-item" style="background-image: url()">
+			
+		</div>
+	</div>
+	
+	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="gmailHidden">
+		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/Gmail.png" width="30em" alt=""></div>
+		<div class="guardianContainer fill-width content-item" style="background-image: url()">
+			
+		</div>
+	</div>
+	
+	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="yahooHidden">
+		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/yahoo.png" width="30em" alt=""></div>
+		<div class="guardianContainer fill-width content-item" style="background-image: url()">
+			
+		</div>
+	</div>
 	
 	
 </div>
