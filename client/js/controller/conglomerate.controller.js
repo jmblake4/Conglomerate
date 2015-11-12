@@ -56,7 +56,6 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 			$scope.weatherStream = res.data;
 			var icon = res.data.weather[0].icon;
 			$scope.fahrenheit = (((res.data.main.temp - 273) * 9.0 / 5.0) + 32).toFixed(1);
-			icon = '09d';
 			if (icon === '01d') {
 				console.log('daytime clear');
 				$scope.textStyle = {
@@ -90,7 +89,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 			} else if (icon === '09n' || icon === '10n' || icon === '11d') {
 				console.log('night stormy');
 				$scope.textStyle = {
-					'color': 'red',
+					'color': 'white',
 				};
 				$scope.weatherImage = '../images/rainsmall.jpg';
 			}
