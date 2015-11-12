@@ -9,7 +9,15 @@ Conglom.controller('RegisterController', ['$scope', '$http', '$rootScope', '$win
 		user.set("email", $scope.user.email);
 		
 		// other fields can be set just like with Parse.Object
-		user.set("somethingelse", "like this!");
+		user.set("streamList", { guardianHidden: true,
+			weatherHidden: true,
+			youtubeHidden: true,
+			imdbHidden: true,
+			redditHidden: true,
+			twitterHidden: true,
+			gmailHidden: true,
+			yahooHidden: true
+		});
 		
 		user.signUp(null, {
 			success: function(user) {

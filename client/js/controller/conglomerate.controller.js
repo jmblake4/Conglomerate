@@ -8,8 +8,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	$scope.guardianHidden = true;
 	$scope.weatherHidden = true;
 	$scope.youtubeHidden = true;
-	// $scope.imdbHidden = true;
-	$scope.movieTestHidden = true;
+	$scope.imdbHidden = true;
 	$scope.redditHidden = true;
 	$scope.twitterHidden = true;
 	$scope.gmailHidden = true;
