@@ -3,8 +3,9 @@
 </head>
 <div class="sidebar fill-height absolute tl blue" ng-cloak>
 	<img src="../images/conglom-logo2.png" class="logo">
-	<br><br>
-	
+	<br>
+	<br>
+
 	<a class="text-hover" href="" title="Add Guardian News Stream">
 		<img src="../images/guardiansmall.png" class="ng-button btns" ng-click="toggle('guardian')"></a>
 	<br>
@@ -28,8 +29,10 @@
 	<br>
 	<a class="text-hover" href="" title="Add Yahoo Stream">
 		<img src="../images/yahoo.png" class="ng-button btns" ng-click="toggle('yahoo')"></a>
-	<br><br><br>
-	
+	<br>
+	<br>
+	<br>
+
 	<img src="../images/logout.svg" class="logout" ng-click="logout()" />
 </div>
 
@@ -44,7 +47,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="weatherHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item weather-bold" style="background-image: url({{weatherImage}})">
@@ -56,10 +59,10 @@
 			<h3 ng-style="textStyle">Pressure: {{ weatherStream.main.pressure }} mbar</h3>
 			<h3 ng-style="textStyle">Wind speed: {{ weatherStream.wind.speed }} mph</h3>
 			<h3 ng-style="textStyle">Lat: {{ weatherStream.coord.lat }}&#176;</h3>
-			<h3 ng-style="textStyle">Long: {{ weatherStream.coord.lon }}&#176;</h3>			
+			<h3 ng-style="textStyle">Long: {{ weatherStream.coord.lon }}&#176;</h3>
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="youtubeHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/youtubesmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer content-item" ng-controller="VideosController">
@@ -67,117 +70,116 @@
 				<div id="player">
 					<div id="placeholder" style="width: 100%"></div>
 				</div>
-			</ons-modal>			
+			</ons-modal>
 			<ons-tabbar>
 				<ons-tab page="../html/search.html" persistent no-reload active="true" icon="fa fa-search" label="Search"></ons-tab>
-				<ons-tab page="../html/history.html" persistent no-reload  icon="fa fa-history" label="History"></ons-tab>
+				<ons-tab page="../html/history.html" persistent no-reload icon="fa fa-history" label="History"></ons-tab>
 			</ons-tabbar>
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}} container-fluid outerdiv" ng-hide="imdbHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/imdb.png" width="30em" alt=""></div>
-	
+
 		<div class="animated zoomInRight guardianContainer content-item">
 			<div class="input-group search-bar-imdb">
-			<input type="text" ng-model="search" ng-change="change()" onclick="select()" class="form-control" placeholder="Enter full movie name" autofocus />
-			<span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+				<input type="text" ng-model="search" ng-change="change()" onclick="select()" class="form-control" placeholder="Enter full movie name"
+				autofocus />
+				<span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
 			</div>
-		
-			<div id="main-info" class="col-md-8">
-			<div ng-if="!details">
-				Loading results...
-			</div>
-		
-			<div class="med-p" ng-if="details.Response==='True'">
-				<img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="animated flip movie-poster">
-		
-				<span class="span-outer">
+
+			<div id="main-info" class="col-md-12">
+				<div ng-if="!details">
+					Loading results...
+				</div>
+
+				<div class="med-p" ng-if="details.Response==='True'">
+					<img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}"
+					class="animated flip movie-poster">
+
+					<span class="span-outer">
 				<a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
 				</span>, {{ details.Year }}
-		
-				<p><strong>Released on:</strong> {{ details.Released }} ({{ details.Runtime }})</p>
-		
-				<p>{{ details.Plot }}</p>
-		
-				<p class="outer-p">
-				<div class="inner-p">
-					<span class="label label-primary">Directors :</span> {{ details.Director }}
+
+					<p><strong>Released on:</strong> {{ details.Released }} ({{ details.Runtime }})</p>
+
+					<p>{{ details.Plot }}</p>
+
+					<p class="col-md-12">
+						<div class="">
+							<span class="label label-primary">Directors :</span> {{ details.Director }}
+						</div>
+						<div class="">
+							<span class="label label-primary">Actors :</span> {{ details.Actors }}
+						</div>
+						<div class="">
+							<span class="label label-primary">Genre :</span> {{ details.Genre }}
+						</div>
+					</p>
+
+					<p class="col-md-12">Ratings:
+						<br>
+						<strong>IMDb Rating</strong>: <span class="label label-success">{{ details.imdbRating }}</span>
+						<br>
+						<strong>Rotten Tomatoes</strong>: <span class="label label-success">{{ details.tomatoRating }}</span>
+					</p>
+
+					<p class="col-md-12">
+						<a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers!</a>
+						<!--<span class="divider"></span>-->
+						<!--<a ng-href="http://subscene.com/subtitles/title?q={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Get Subtitles!</a>-->
+						<!--<span class="divider"></span>-->
+						<!--<a ng-href="http://www.theost.com/search/custom/?key={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Hear Soundtracks!</a>-->
+						<span class="divider"></span>
+						<a ng-href="http://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ details.Title }}" target="_blank"
+						class="btn btn-default btn-xs btn-info">Buy this movie!</a>
+					</p>
 				</div>
-				<div class="inner-p">
-					<span class="label label-primary">Actors :</span> {{ details.Actors }}
-				</div>
-				<div class="inner-p">
-					<span class="label label-primary">Genre :</span> {{ details.Genre }}
-				</div>
-				</p>
-		
-				<p class="outer-p-2">Ratings:
 				<br>
-				<strong>IMDb Rating</strong>: <span class="label label-success">{{ details.imdbRating }}</span>
-				<br>
-				<strong>Rotten Tomatoes</strong>: <span class="label label-success">{{ details.tomatoRating }}</span>
-				</p>
-		
-				<p class="outer-p-3">
-				<a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers!</a>
-				<span class="divider"></span>
-				<a ng-href="http://subscene.com/subtitles/title?q={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Get Subtitles!</a>
-				<span class="divider"></span>
-				<a ng-href="http://www.theost.com/search/custom/?key={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Hear Soundtracks!</a>
-				<span class="divider"></span>
-				<a ng-href="http://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy this movie!</a>
-				</p>
+				<div ng-if="details.Response==='False'">
+					No results found.
+				</div>
 			</div>
-		
-			<div ng-if="details.Response==='False'">
-				No results found.
-			</div>
-			</div>
-		
-			<div id="related-results" class="col-md-4 animated bounce related-results">
-			<div ng-if="related.Response!=='False'">
-				Related Results:
-				<hr>
-		
-				<ul class="rel-results">
-				<li ng-repeat="movie in related.Search">
-					<a href="#deck" id="{{ $index + 1 }}" ng-click="update(movie)">{{ movie.Title }}</a>, {{ movie.Year }}
-				</li>
-				</ul>
-			</div>
+			<div id="related-results" class="col-md-12 animated bounce related-results no-bullet">
+				<div ng-if="related.Response!=='False'">
+					<strong>Related Results:</strong>
+					<br>
+					<ul class="movie-repeat no-bullet">
+						<li ng-repeat="movie in related.Search">
+							<a href="#deck" id="{{ $index + 1 }}" ng-click="update(movie)">{{ movie.Title }}</a>, {{ movie.Year }}
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>	
-	
-	
+	</div>
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="redditHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/reddit.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/redditbg.png)">
-			
+
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="twitterHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/twitter.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/twitterbg.png)">
-			
+
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="gmailHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/Gmail.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/gmailbg.png)">
-			
+
 		</div>
 	</div>
-	
+
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="yahooHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/yahoo.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/yahoobg.png)">
-			
+
 		</div>
 	</div>
-	
-	
+
+
 </div>
