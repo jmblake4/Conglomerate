@@ -38,7 +38,7 @@
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/guardiansmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item pad-left">
 			<div class="div-fonts small-p" ng-repeat="item in guardianStream">
-				<a href="{{item.webUrl}}"><h4>{{ item.webTitle }}</h4></a>
+				<a href="{{item.webUrl}}" target="_blank"><h4>{{ item.webTitle }}</h4></a>
 				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
 				<p>Posted on {{ item.webPublicationDate | date : shortDate }}</p>
 			</div>
