@@ -5,7 +5,6 @@
 	<img src="../images/conglom-logo2.png" class="logo">
 	<br>
 	<br>
-
 	<a class="text-hover" href="" title="Add Guardian News Stream">
 		<img src="../images/guardiansmall.png" class="ng-button btns" ng-click="toggle('guardian')"></a>
 	<br>
@@ -32,22 +31,18 @@
 	<br>
 	<br>
 	<br>
-
 	<img src="../images/logout.svg" class="logout" ng-click="logout()" />
 </div>
-
 <div class="view-inner-container relative" ng-cloak>
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="guardianHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/guardiansmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item pad-left">
 			<div class="div-fonts small-p" ng-repeat="item in guardianStream">
 				<a href="{{item.webUrl}}" target="_blank"><h4>{{ item.webTitle }}</h4></a>
-				<!--<a href="{{item.webUrl}}" class="content-item url-pad">{{item.webUrl}}</a>-->
 				<p>Posted on {{ item.webPublicationDate | date : shortDate }}</p>
 			</div>
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="weatherHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/weathersmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item weather-bold" style="background-image: url({{weatherImage}})">
@@ -62,7 +57,6 @@
 			<h3 ng-style="textStyle">Long: {{ weatherStream.coord.lon }}&#176;</h3>
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="youtubeHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/youtubesmall.png" width="30em" alt=""></div>
 		<div class="guardianContainer content-item" ng-controller="VideosController">
@@ -77,7 +71,6 @@
 			</ons-tabbar>
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}} container-fluid outerdiv" ng-hide="imdbHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/imdb.png" width="30em" alt=""></div>
 
@@ -87,43 +80,35 @@
 				autofocus />
 				<span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
 			</div>
-
 			<div id="main-info" class="col-md-12">
 				<div ng-if="!details">
 					Loading results...
 				</div>
-
 				<div class="med-p" ng-if="details.Response==='True'">
 					<img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}"
 					class="animated flip movie-poster">
-
 					<span class="span-outer">
 				<a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
 				</span>, {{ details.Year }}
-
 					<p><strong>Released on:</strong> {{ details.Released }} ({{ details.Runtime }})</p>
-
 					<p>{{ details.Plot }}</p>
-
-					<p class="col-md-12">
+					<p class="col-md-12 rate-3">
 						<div class="">
-							<span class="label label-primary">Directors :</span> {{ details.Director }}
+							<span class="label label-primary rate-3">Directors :</span> {{ details.Director }}
 						</div>
 						<div class="">
-							<span class="label label-primary">Actors :</span> {{ details.Actors }}
+							<span class="label label-primary rate-3">Actors :</span> {{ details.Actors }}
 						</div>
 						<div class="">
-							<span class="label label-primary">Genre :</span> {{ details.Genre }}
+							<span class="label label-primary rate-3">Genre :</span> {{ details.Genre }}
 						</div>
 					</p>
-
-					<p class="col-md-12">Ratings:
+					<p class="col-md-12 rate">Ratings:
 						<br>
-						<strong>IMDb Rating</strong>: <span class="label label-success">{{ details.imdbRating }}</span>
+						<strong>IMDb Rating</strong>: <span class="label label-success rate">{{ details.imdbRating }}</span>
 						<br>
-						<strong>Rotten Tomatoes</strong>: <span class="label label-success">{{ details.tomatoRating }}</span>
+						<strong>Rotten Tomatoes</strong>: <span class="label label-success rate">{{ details.tomatoRating }}</span>
 					</p>
-
 					<p class="col-md-12">
 						<a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers!</a>
 						<!--<span class="divider"></span>-->
@@ -156,30 +141,21 @@
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="redditHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/reddit.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/redditbg.png)">
-
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="twitterHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/twitter.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/twitterbg.png)">
-
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="gmailHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/Gmail.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/gmailbg.png)">
-
 		</div>
 	</div>
-
 	<div class="view-inner-container-2 relative {{widthClass}}" ng-hide="yahooHidden">
 		<div class="navbar-glom fill-width absolute tl blue guardian"><img src="../images/yahoo.png" width="30em" alt=""></div>
 		<div class="guardianContainer fill-width content-item" style="background-image: url(../images/yahoobg.png)">
-
 		</div>
 	</div>
-
-
 </div>
