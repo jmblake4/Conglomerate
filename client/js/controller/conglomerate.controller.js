@@ -4,16 +4,38 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 		$window.location.href = '#login';
 	}
 
-	$scope.userName = $rootScope.currentUser.attributes.username;
-	$scope.guardianHidden = true;
-	$scope.weatherHidden = true;
-	$scope.youtubeHidden = true;
-	$scope.imdbHidden = true;
-	$scope.redditHidden = true;
-	$scope.twitterHidden = true;
-	$scope.gmailHidden = true;
-	$scope.yahooHidden = true;
 	var visibleStreams = 0;
+
+	var currentUser = Parse.User.current();
+	var guardianHidden = currentUser.get('guardianHidden');
+	var weatherHidden = currentUser.get('weatherHidden');
+	var youtubeHidden = currentUser.get('youtubeHidden');
+	var imdbHidden = currentUser.get('imdbHidden');
+	var redditHidden = currentUser.get('redditHidden');
+	var twitterHidden = currentUser.get('twitterHidden');
+	var gmailHidden = currentUser.get('gmailHidden');
+	var yahooHidden = currentUser.get('yahooHidden');
+
+	$scope.userName = $rootScope.currentUser.attributes.username;
+	$scope.guardianHidden = isTrue(guardianHidden);
+	$scope.weatherHidden = isTrue(weatherHidden);
+	$scope.youtubeHidden = isTrue(youtubeHidden);
+	$scope.imdbHidden = isTrue(imdbHidden);
+	$scope.redditHidden = isTrue(redditHidden);
+	$scope.twitterHidden = isTrue(twitterHidden);
+	$scope.gmailHidden = isTrue(gmailHidden);
+	$scope.yahooHidden = isTrue(yahooHidden);
+
+	function isTrue(hiddenStr) {
+		if (hiddenStr === 'true') {
+			return true;
+		} else {
+			visibleStreams++;
+			return false;
+		}
+	}
+	console.log(visibleStreams);
+
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
 	$scope.movieList = []
     var pendingTask;
@@ -40,6 +62,15 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	}
 
 	$scope.logout = function() {
+		currentUser.set('guardianHidden', $scope.guardianHidden.toString());
+		currentUser.set('weatherHidden', $scope.weatherHidden.toString());
+		currentUser.set('youtubeHidden', $scope.youtubeHidden.toString());
+		currentUser.set('imdbHidden', $scope.imdbHidden.toString());
+		currentUser.set('redditHidden', $scope.redditHidden.toString());
+		currentUser.set('twitterHidden', $scope.twitterHidden.toString());
+		currentUser.set('gmailHidden', $scope.gmailHidden.toString());
+		currentUser.set('yahooHidden', $scope.yahooHidden.toString());
+		currentUser.save();
 		$window.location.href = '#login';
 		Parse.User.logOut();
 		$rootScope.currentUser = null;
