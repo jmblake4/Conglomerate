@@ -1,11 +1,9 @@
 # Conglomerate
-Conglomerate project
-by
-Jay Blake, Steve Sartino & Michael McDonald.
+By Jay Blake, Steve Sartino & Michael McDonald.
 
 Final class project at Alabama's first Depot/U Front-End Web Developer Bootcamp.
 
-Single Page App (SPA) built with Angular 1.
+Single-Page Application (SPA) built with Angular 1.
 Requires Bootstrap, Onsen and jQuery javascript libraries.
 Uses parse.com (cloud database) for registration/login.
 
