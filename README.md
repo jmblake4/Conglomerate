@@ -1,8 +1,6 @@
 # Conglomerate
 By Jay Blake, Steve Sartino & Michael McDonald.
 
-Final class project at Alabama's first Web Developer Bootcamp.
-
 Single-Page Application (SPA) built with Angular.
 Requires Bootstrap, Onsen and jQuery libraries.
 Uses parse.com (cloud database) for registration/login.
