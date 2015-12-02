@@ -34,6 +34,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 			return false;
 		}
 	}
+	
 	console.log(visibleStreams);
 
 	$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
@@ -49,16 +50,6 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 		hidden ? visibleStreams++ : visibleStreams--;
 		eval('$scope.' + streamName + 'Hidden = !$scope.' + streamName + 'Hidden;');
 		$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
-	}
-
-	$scope.removeStream = function() {
-		if ( visibleStreams === 0 ) {
-			alert('No stream found to remove!');
-		} else {
-			eval('$scope.stream' + visibleStreams.toString() + 'Hide = true;');
-			visibleStreams--;
-			$scope.widthClass = 'inner-' + visibleStreams.toString() + '-width';
-		}
 	}
 
 	$scope.logout = function() {
@@ -138,14 +129,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
         }).catch(function(err) {
             alert('Error: ' + err.message);
         });
-
     }
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////// Test movie section //////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
 	
     if ($scope.search === undefined) {
       $scope.search = "";
@@ -179,11 +163,5 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
     $scope.select = function() {
       this.setSelectionRange(0, this.value.length);
     }
-
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////// End Test movie section ////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////
 	
 }]);
