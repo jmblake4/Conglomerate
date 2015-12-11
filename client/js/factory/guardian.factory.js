@@ -2,10 +2,8 @@ Conglom.factory('Guardian', ['$http', '$cacheFactory', '$rootScope', function($h
 
 	var GuardianFeed = {};
 
-	var urlPath = 'https://content.guardianapis.com/search?api-key=9uhgzw5cgu3mq82e2ymu5jxz';
-
 	GuardianFeed.getPosts = function() {
-		var urlPath = 'https://content.guardianapis.com/search?api-key=9uhgzw5cgu3mq82e2ymu5jxz';
+		var urlPath = 'https://localhost:3000/guardian';
 		return $http.get(urlPath);
 	};
 

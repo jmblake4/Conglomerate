@@ -76,6 +76,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 
 	Weather.getCurrentPositionDeferred()
 	.then(function(position) {
+		console.log(position);
 		Weather.getPosts(position.coords.latitude, position.coords.longitude)
 		.then(function(res) {
 			$scope.weatherStream = res.data;
