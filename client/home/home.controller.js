@@ -1,6 +1,6 @@
 Conglom.controller('HomeController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory',  function($scope, $http, $rootScope, $window, $cacheFactory) {
 
-	if ( $rootScope.currentUser === null || $rootScope.currentUser.attributes === undefined ) {
+	if ( Parse.User.current() === null ) {
 		$window.location.href = "#login";
 	} else {
 		$window.location.href = "#deck";

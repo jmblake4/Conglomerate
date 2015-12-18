@@ -1,12 +1,12 @@
 Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window', '$cacheFactory', '$log', 'VideosService', 'TMDBFactory', 'Guardian', 'Weather',  function($scope, $http, $rootScope, $window, $cacheFactory, $log, VideosService, TMDBFactory, Guardian, Weather) {
 
-	if ($rootScope.currentUser === null || $rootScope.currentUser.attributes === undefined) {
+	var currentUser = Parse.User.current();
+	if ( currentUser === null ) {
 		$window.location.href = '#login';
 	}
 
 	var visibleStreams = 0;
 
-	var currentUser = Parse.User.current();
 	var guardianHidden = currentUser.get('guardianHidden');
 	var weatherHidden = currentUser.get('weatherHidden');
 	var youtubeHidden = currentUser.get('youtubeHidden');
@@ -16,7 +16,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	var gmailHidden = currentUser.get('gmailHidden');
 	var yahooHidden = currentUser.get('yahooHidden');
 
-	$scope.userName = $rootScope.currentUser.attributes.username;
+	$scope.userName = Parse.User.current().attributes.username;
 	$scope.guardianHidden = isTrue(guardianHidden);
 	$scope.weatherHidden = isTrue(weatherHidden);
 	$scope.youtubeHidden = isTrue(youtubeHidden);
@@ -62,9 +62,8 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 		currentUser.set('gmailHidden', $scope.gmailHidden.toString());
 		currentUser.set('yahooHidden', $scope.yahooHidden.toString());
 		currentUser.save();
-		$window.location.href = '#login';
 		Parse.User.logOut();
-		$rootScope.currentUser = null;
+		$window.location.href = '#login';
 	}
 
 	Guardian.getPosts()

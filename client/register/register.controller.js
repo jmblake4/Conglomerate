@@ -28,8 +28,6 @@ Conglom.controller('RegisterController', ['$scope', '$http', '$rootScope', '$win
 		
 		user.signUp(null, {
 			success: function(user) {
-				$rootScope.currentUser = user;
-				$rootScope.$apply();
 				$window.location.href = "#deck";
 			},
 			error: function(user, error) {

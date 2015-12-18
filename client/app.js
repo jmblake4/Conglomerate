@@ -4,7 +4,6 @@ Conglom.run(['$rootScope', '$location', '$cookieStore', '$http', function ($root
 	
 	// Use APP ID and Javascript ID keys here
 	Parse.initialize('2vrwNvHrsNAFxQiLGpzqmqaogyyhbzarZuCYa1Mw', 'tnh6UEIFa5R6eJgdzF2Q2NS6VOQhJH0Xhz6qY9Z0');
-	$rootScope.currentUser = Parse.User.current;
 
 }]);
 

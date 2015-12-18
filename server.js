@@ -27,10 +27,10 @@ app.get('/weather/:latitude/:longitude', function(req, res) {
 		}
 	}
 	request_p(weatherOptions).then(function(data) {
-		console.log(data);
 		res.send(data);
 	}).catch(function(error) {
 		console.log('Error: ' + error);
+		res.send(error);
 	});
 });
 
@@ -44,33 +44,9 @@ app.get('/guardian', function(req, res) {
 		}
 	}
 	request_p(guardianOptions).then(function(data) {
-		console.log(data);
 		res.send(data);
 	}).catch(function(error) {
 		console.log('Error: ' + error);
+		res.send(error);
 	});
 });
-
-// app.post('/createcustomer', function(req, res) {
-// 	request_p(tokenOptions).then(function(data) {
-// 		return JSON.parse(data).access_token;
-// 	}).then(function(token) {
-// 		var transID = getTransactionID();
-// 		var customerOptions = {
-// 			'uri': bbvaURI,
-// 			'method': 'POST',
-// 			'headers': {
-// 				'Accept': 'application/json',
-// 				'Content-Type': 'application/json',
-// 				'Authorization': 'TSec ' + token,
-// 				'X-Unique-Transaction-ID': transID
-// 			},
-// 			'body': JSON.stringify(req.body)
-// 		};
-// 		return request_p(customerOptions);
-// 	}).then(function(data) {
-// 		res.send(JSON.stringify(data));
-// 	}).catch(function(error) {
-// 		res.send(JSON.stringify(error));
-// 	});
-// });
