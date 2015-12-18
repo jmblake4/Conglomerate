@@ -16,7 +16,7 @@ Conglom.controller('DeckController', ['$scope', '$http', '$rootScope', '$window'
 	var gmailHidden = currentUser.get('gmailHidden');
 	var yahooHidden = currentUser.get('yahooHidden');
 
-	$scope.userName = Parse.User.current().attributes.username;
+	$scope.userName = currentUser.attributes.username;
 	$scope.guardianHidden = isTrue(guardianHidden);
 	$scope.weatherHidden = isTrue(weatherHidden);
 	$scope.youtubeHidden = isTrue(youtubeHidden);
